@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 21:31:04 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/11 21:50:50 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:06:27 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &t)
 	return (*this);
 }
 
-void RobotomyRequestForm::function() const
-{
-	srand(time(NULL));
-	int test = std::rand();
-	if ((test % 2) == 0)
-		std::cout << _target << " has been robotomized" << std::endl;
-	else
-		std::cout << "Robotomized failed on " << _target << std::endl;
+void RobotomyRequestForm::function() const {
+    std::cout << "* drilling noises *" << std::endl;  // Simulating the sound
+    srand(time(NULL));  // Seed random number generator
+    if (rand() % 2) {  // 50% chance
+        std::cout << _target << " has been robotomized successfully!" << std::endl;
+    } else {
+        std::cout << "Robotomy failed on " << _target << "." << std::endl;
+    }
 }
+
 
 int	RobotomyRequestForm::grade()
 {
@@ -52,3 +53,10 @@ int	RobotomyRequestForm::grade()
 	}
 	return (this->getExec());
 }
+
+RobotomyRequestForm::~RobotomyRequestForm() {
+    // Destructor implementation
+}
+
+//Sign Grade: 72
+//Execution Grade: 45

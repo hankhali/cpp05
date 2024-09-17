@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 19:23:56 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/10 19:59:47 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:38:46 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm{
         AForm();
         AForm(const std::string name, const int req, const int exec);
         AForm &operator=(AForm &t);
-        ~AForm();
+        virtual ~AForm();
 
             class GradeTooLowException: public std::exception
         {

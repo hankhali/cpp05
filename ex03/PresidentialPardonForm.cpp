@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 20:00:15 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/11 21:50:30 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:39:22 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,8 @@ int	PresidentialPardonForm::grade()
 		return (-1);
 	}
 	return (this->getExec());
+}
+
+PresidentialPardonForm::~PresidentialPardonForm() {
+    // Optional: Clean up any resources if necessary
 }

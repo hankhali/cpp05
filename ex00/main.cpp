@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:36:42 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/03 18:55:12 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 12:08:30 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
     try 
     {
-        Bureaucrat john("John", 2);
+        Bureaucrat john("John", 1);
         std::cout << john << std::endl;
 
         john.increment();
@@ -30,7 +30,7 @@ int main()
     }
     try 
     {
-        Bureaucrat jane("Jane", 150);
+        Bureaucrat jane("Jane", 148);
         std::cout << jane << std::endl;
 
         jane.decrement();

@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 21:19:51 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/11 21:52:41 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:47:58 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,24 +92,23 @@ int AForm::getReq()
 }
 
 
-void AForm::beSigned(Bureaucrat &b)
-{
-	if (b.getGrade() <= this->_req && b.getGrade() > 0)
-		this->_sign = 1;
-	else
-	{
-		std::cout << b.getName() << " cant sign " << this->getName() << " because his grade is " << b.getGrade() << " and the required grade is " << this->getReq() << std::endl;
-		throw AForm::GradeTooHighException();
-		this->_sign = 0;
-	}
+void AForm::beSigned(Bureaucrat &b) {
+    if (b.getGrade() > this->_req) {  // If the grade is too low for signing
+        throw AForm::GradeTooLowException();
+    } else {
+        this->_sign = true;  // Mark the form as signed
+    }
 }
 
-void AForm::execute(Bureaucrat const & executor) const
-{
-	if (_sign == 0)
-		std::cout << "AForm " << this->_name << "is not signed" << std::endl;
-	else if (executor.getGrade() <= _req)
-		this->function();
-	else
-		throw AForm::GradeTooHighException();
+
+
+void AForm::execute(Bureaucrat const &executor) const {
+    if (!_sign) {
+        throw std::runtime_error("Form is not signed.");  // Prevent execution if not signed
+    } else if (executor.getGrade() > this->_exec) {
+        throw AForm::GradeTooLowException();  // Prevent execution if grade is too low
+    } else {
+        this->function();  // Call the form-specific function
+    }
 }
+

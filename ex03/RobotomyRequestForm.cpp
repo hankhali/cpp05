@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 21:31:04 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/11 21:50:50 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:39:13 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,8 @@ int	RobotomyRequestForm::grade()
 		return (-1);
 	}
 	return (this->getExec());
+}
+
+RobotomyRequestForm::~RobotomyRequestForm() {
+    // Destructor implementation
 }

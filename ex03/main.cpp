@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:40:59 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/12 20:01:30 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:38:07 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,35 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
-int main ()
-{
-   Bureaucrat test("test", 46);
+int main() {
+    Intern intern;
 
-//     test.increaseGrade();
-//     std::cout << test << std::endl;
-//     AForm *testform = new PresidentialPardonForm("Home");
-//     AForm *testform1 = new RobotomyRequestForm("robot");
-//     // testform->function();
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    rrf->beSigned(test);
-    rrf->execute(test);
-    // testform1->beSigned(test);
-    // testform->beSigned(test);
-    // test.signForm(*testform);
-    // test.signForm(*testform1);
-    // Bureaucrat test1("hey", 4);
-    // std::cout << test1 << std::endl;
-    // std::cout << test.getName() << std::endl;
+    // Example of creating forms using the intern
+    AForm* shrubbery = intern.makeForm("shrubbery request", "Home");
+    if (shrubbery) {
+        std::cout << shrubbery->getName() << " form created!" << std::endl;
+    }
+
+    AForm* robotomy = intern.makeForm("robotomy request", "Bender");
+    if (robotomy) {
+        std::cout << robotomy->getName() << " form created!" << std::endl;
+    }
+
+    AForm* pardon = intern.makeForm("presidential request", "Arthur Dent");
+    if (pardon) {
+        std::cout << pardon->getName() << " form created!" << std::endl;
+    }
+
+    // Test an invalid form creation
+    AForm* invalidForm = intern.makeForm("invalid request", "Nobody");
+    if (invalidForm == NULL) {
+        std::cout << "Failed to create invalid form." << std::endl;
+    }
+
+    // Don't forget to delete the created forms to avoid memory leaks
+    delete shrubbery;
+    delete robotomy;
+    delete pardon;
+
+    return 0;
 }

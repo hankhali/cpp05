@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 21:40:48 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/11 21:51:04 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:06:11 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,38 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &t
 	return (*this);
 }
 
-void ShrubberyCreationForm::function() const
-{
-	std::string namef;
-	namef = _target + "_shrubbery";
-	const char* char_array = namef.c_str();
-	std::fstream fs;
-	fs.open(char_array, std::fstream::in | std::fstream::out | std::fstream::app);
-	fs << 	"              * *\n"
-	"           *    *  *\n"
-	"      *  *    *     *  *\n"
-	"     *     *    *  *    *\n"
-	" * *   *    *    *    *   *\n"
-	" *     *  *    * * .#  *   *\n"
-	" *   *     * #.  .# *   *\n"
-	"  *     \"#.  #: #\" * *    *\n"
-	" *   * * \"#. ##\"       *\n"
-	"   *       \"###\n"
-	"             \"##\n"
-	"              ##.\n"
-	"              .##:\n"
-	"              :###\n"
-	"              ;###\n"
-	"            ,####.\n"
-	"/\\/\\/\\/\\/\\/.######.\\/\\/\\/\\/\\\n"<< std::endl;
-	fs.close();
+void ShrubberyCreationForm::function() const {
+    std::string filename = _target + "_shrubbery";  // Create the file name
+    std::ofstream outFile(filename.c_str());  // Open file for writing
+
+    if (!outFile) {  // Check if the file was opened successfully
+        std::cerr << "Error: Could not create file " << filename << std::endl;
+        return;
+    }
+
+    // Write ASCII tree into the file
+    outFile << "              * *\n"
+               "           *    *  *\n"
+               "      *  *    *     *  *\n"
+               "     *     *    *  *    *\n"
+               " * *   *    *    *    *   *\n"
+               " *     *  *    * * .#  *   *\n"
+               " *   *     * #.  .# *   *\n"
+               "  *     \"#.  #: #\" * *    *\n"
+               " *   * * \"#. ##\"       *\n"
+               "   *       \"###\n"
+               "             \"##\n"
+               "              ##.\n"
+               "              .##:\n"
+               "              :###\n"
+               "              ;###\n"
+               "            ,####.\n"
+               "/\\/\\/\\/\\/\\/.######.\\/\\/\\/\\/\\\n";
+
+    outFile.close();  // Close the file after writing
+    std::cout << "Shrubbery has been created in file: " << filename << std::endl;
 }
+
 
 int	ShrubberyCreationForm::grade()
 {
@@ -69,3 +75,10 @@ int	ShrubberyCreationForm::grade()
 	}
 	return (this->getExec());
 }
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {
+    // Optional: Clean up any resources if necessary
+}
+
+//Sign Grade: 145
+//Execution Grade: 137
