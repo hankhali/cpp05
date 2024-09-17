@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 17:37:02 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/01 21:23:04 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 20:12:20 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <string>
 #include <iostream>
 #include <exception>
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,6 +37,7 @@ class Bureaucrat
         void increment();
         void decrement();
 
+        void signForm(Form fr);
         class GradeTooHighException : public std::exception
         {
             public:

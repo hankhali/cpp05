@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:40:59 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/17 13:51:11 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 20:14:44 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+    // Bureaucrat();
     try {
         std::cout << "Creating a valid Bureaucrat and Form..." << std::endl;
         Bureaucrat john("John", 4);
@@ -27,6 +28,8 @@ int main()
         std::cout << "John tries to sign the valid form..." << std::endl;
         validForm.beSigned(john);
         std::cout << "Form successfully signed by " << john.getName() << std::endl;
+
+        john.signForm(validForm);
     } catch (const std::exception &e) 
     {
         std::cout << "Exception: " << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 21:40:48 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/17 15:06:11 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 22:13:03 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &t)
 {
-	_target = t._target;
-	return (*this);
+    if (this != &t) 
+        _target = t._target; 
+    return *this;
 }
 
 void ShrubberyCreationForm::function() const {
@@ -66,18 +67,16 @@ int	ShrubberyCreationForm::grade()
 	if (this->getExec() < 137)
 	{
 		throw ShrubberyCreationForm::GradeTooHighException();
-		return (-1);
 	}
 	else if (this->getReq() > 145)
 	{
 		throw ShrubberyCreationForm::GradeTooLowException();
-		return (-1);
 	}
 	return (this->getExec());
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-    // Optional: Clean up any resources if necessary
+ShrubberyCreationForm::~ShrubberyCreationForm() 
+{
 }
 
 //Sign Grade: 145

@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 21:31:04 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/17 15:06:27 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 22:15:52 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRe
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &t)
 {
-	_target = t._target;
-	return (*this);
+    if (this != &t)
+        _target = t._target;
+    return *this;
 }
 
-void RobotomyRequestForm::function() const {
-    std::cout << "* drilling noises *" << std::endl;  // Simulating the sound
-    srand(time(NULL));  // Seed random number generator
-    if (rand() % 2) {  // 50% chance
+void RobotomyRequestForm::function() const 
+{
+    static int counter = 0;
+
+    std::cout << "* drilling noises *" << std::endl;
+    if (counter % 2 == 0) {  // 50% chance, alternating between success and failure
         std::cout << _target << " has been robotomized successfully!" << std::endl;
     } else {
         std::cout << "Robotomy failed on " << _target << "." << std::endl;
     }
+
+    counter++;  // Increment the counter for the next function call
 }
 
 

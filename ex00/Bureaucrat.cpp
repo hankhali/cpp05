@@ -6,7 +6,7 @@
 /*   By: hankhali <hankhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 17:36:59 by hankhali          #+#    #+#             */
-/*   Updated: 2024/09/03 18:47:46 by hankhali         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:53:27 by hankhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Bureaucrat:: Bureaucrat(const std::string _name, int _grade) : name(_name), grad
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
 {
-    std::cout << "Bureaucrat " << this->name << " destroyed " << std::endl;
-    
+    std::cout << "Bureaucrat " << this->name << " copied" << std::endl;
 }
+
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
